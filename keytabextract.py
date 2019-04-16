@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3
+#!/usr/bin/env python3
 import binascii,sys
 
 # Take argument 1 as keytab file, import and decode the hex
@@ -64,7 +64,7 @@ def ktextract():
 
     # Calculate the number of bytes for the realm of components
     comp_array_calc  = realm_jump + 4
-    comp_array = int(hex_encoded[realm_jump:comp_array_calc])
+    comp_array = int(hex_encoded[realm_jump:comp_array_calc], 16)
 
     # Calculates the realm component (HTTP)
     comp_array_offset = comp_array_calc + (comp_array * 2)
